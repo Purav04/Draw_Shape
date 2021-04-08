@@ -1,0 +1,26 @@
+ * {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.whiteboard {
+    border:5px solid black;
+}
+
+.button{
+padding:15px;
+font-size:24px;
+
+}
+
+.btnholder{
+position:absolute;
+left:45%;
+bottom:0;
+}
+
