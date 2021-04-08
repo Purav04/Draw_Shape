@@ -36,4 +36,4 @@ def predict():
     return render_template("index.html", prediction = shape[0] if len(shape)>0 else " ")
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
