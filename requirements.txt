@@ -13,7 +13,8 @@ PyMsgBox==1.0.9
 pyperclip==1.8.2
 PyRect==0.1.4
 PyScreeze==0.1.26
-pyautogui==0.9
+Xlib
+pyautogui
 pytesseract==0.3.7
 PyTweening==1.0.3
 tesseract==0.1.3
