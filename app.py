@@ -21,16 +21,11 @@ def index():
 @app.route("/predict")
 def predict():
     pytesseract.pytesseract.tesseract_cmd = "tesseract\\tesseract.exe"
-    print("platform:",sys.platform)
-    img = ImageGrab.grab(xdisplay=None)
+    img = pyautogui.screenshot(region=(10, 140, 1850, 700))
+    frame = np.array(img)
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     
-    left = 10
-    top = 140 
-    right = 1850
-    bottom = 870
-    t = img.crop((left,top,right,bottom))
-    
-    shape = pytesseract.image_to_string(t)
+    shape = pytesseract.image_to_string(frame)
     shape=[i.lower() for i in shape.split("\n") if i not in [""," ","\x0c"]]
     print(shape)
     
