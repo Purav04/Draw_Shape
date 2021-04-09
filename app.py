@@ -40,7 +40,7 @@ def predict():
 #     finally:
 #         dsp.close()
     
-    im=pyscreenshot.grab(bbox=(10,10,500,500))
+    im=pyscreenshot.grab(bbox=(10, 140, 1850, 700))
     
     shape = pytesseract.image_to_string(im)
     shape=[i.lower() for i in shape.split("\n") if i not in [""," ","\x0c"]]
