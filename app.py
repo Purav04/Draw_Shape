@@ -21,7 +21,7 @@ def index():
 def predict():
     pytesseract.pytesseract.tesseract_cmd = "tesseract\\tesseract.exe"
     
-    img = ImageGrab.grab(xdisplay="")
+    img = ImageGrab.grab(xdisplay=None)
     
     left = 10
     top = 140 
