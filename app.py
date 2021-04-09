@@ -9,6 +9,7 @@ Created on Wed Apr  7 22:03:36 2021
 from flask import Flask,render_template
 from PIL import ImageGrab
 import pytesseract
+import sys
 
 app = Flask(__name__)
 
@@ -20,7 +21,7 @@ def index():
 @app.route("/predict")
 def predict():
     pytesseract.pytesseract.tesseract_cmd = "tesseract\\tesseract.exe"
-    
+    print("platform:",sys.platform)
     img = ImageGrab.grab(xdisplay=None)
     
     left = 10
