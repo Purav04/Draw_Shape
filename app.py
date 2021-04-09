@@ -11,7 +11,8 @@ import pytesseract
 import numpy as np
 #import pyautogui
 #import cv2
-from Xlib import display, X
+import pyscreenshot
+#from Xlib import display, X
 from PIL import Image #PIL
 
 app = Flask(__name__)
@@ -30,17 +31,18 @@ def predict():
     
     
 
-    W,H = 200,200
-    dsp = display.Display()
-    try:
-        root = dsp.screen().root
-        raw = root.get_image(10, 140, 1850,700, X.ZPixmap, 0xffffffff)
-        image = Image.fromstring("RGB", (W, H), raw.data, "raw", "BGRX")
-    finally:
-        dsp.close()
+#     W,H = 200,200
+#     dsp = display.Display()
+#     try:
+#         root = dsp.screen().root
+#         raw = root.get_image(10, 140, 1850,700, X.ZPixmap, 0xffffffff)
+#         image = Image.fromstring("RGB", (W, H), raw.data, "raw", "BGRX")
+#     finally:
+#         dsp.close()
     
+    im=pyscreenshot.grab(bbox=(10,10,500,500))
     
-    shape = pytesseract.image_to_string(image)
+    shape = pytesseract.image_to_string(im)
     shape=[i.lower() for i in shape.split("\n") if i not in [""," ","\x0c"]]
     #print(shape)
     
