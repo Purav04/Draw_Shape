@@ -7,9 +7,10 @@ Created on Wed Apr  7 22:03:36 2021
 
 
 from flask import Flask,render_template
-from PIL import ImageGrab
+import cv2
+import pyautogui
+import numpy as np
 import pytesseract
-import sys
 
 app = Flask(__name__)
 
