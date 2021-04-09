@@ -7,9 +7,9 @@ Created on Wed Apr  7 22:03:36 2021
 
 
 from flask import Flask,render_template
-import cv2
 import pyautogui
 import numpy as np
+import cv2
 import pytesseract
 
 app = Flask(__name__)
