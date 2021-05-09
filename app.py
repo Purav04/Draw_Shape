@@ -1,52 +1,34 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Apr  7 22:03:36 2021
-
-@author: Purav
-"""
-
-
-from flask import Flask,render_template
+from flask import Flask,render_template,request,json,jsonify
+from PIL import Image
 import pytesseract
-import numpy as np
-#import pyautogui
-#import cv2
-import pyscreenshot
-#from Xlib import display, X
-from PIL import Image #PIL
+import base64
+from io import BytesIO
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html",prediction="")
 
 
-@app.route("/predict")
+@app.route("/predict",methods = ['GET','POST'])
 def predict():
+    
+    data_url = request.values['url']
+    offset = data_url.index(',')+1
+    img_bytes = base64.b64decode(data_url[offset:])
+    img = Image.open(BytesIO(img_bytes))
+    
+    new_image = Image.new("RGBA", img.size, "WHITE") 
+    new_image.paste(img, (0, 0), img)              
+    new_image.convert('RGB')
+    
     pytesseract.pytesseract.tesseract_cmd = "tesseract\\tesseract.exe"
-    #img = pyautogui.screenshot(region=(10, 140, 1850, 700))
-    #frame = np.array(img)
-    #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     
-    
-
-#     W,H = 200,200
-#     dsp = display.Display()
-#     try:
-#         root = dsp.screen().root
-#         raw = root.get_image(10, 140, 1850,700, X.ZPixmap, 0xffffffff)
-#         image = Image.fromstring("RGB", (W, H), raw.data, "raw", "BGRX")
-#     finally:
-#         dsp.close()
-    
-    im=pyscreenshot.grab(bbox=(10, 140, 1850, 700))
-    
-    shape = pytesseract.image_to_string(im)
+    shape = pytesseract.image_to_string(new_image)
     shape=[i.lower() for i in shape.split("\n") if i not in [""," ","\x0c"]]
-    #print(shape)
     
-    return render_template("index.html", prediction = shape[0] if len(shape)>0 else " ")
+    return json.dumps(shape[0] if len(shape)>0 else " ")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
