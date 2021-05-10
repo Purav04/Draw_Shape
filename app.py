@@ -24,7 +24,7 @@ def predict():
     new_image.convert('RGB')
     
     # start pytesseract
-    pytesseract.pytesseract.tesseract_cmd = "tesseract\\tesseract.exe"
+    #pytesseract.pytesseract.tesseract_cmd = "tesseract\\tesseract.exe"
     
     # predict from canvas image
     shape = pytesseract.image_to_string(new_image)
