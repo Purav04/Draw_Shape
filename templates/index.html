@@ -3,25 +3,27 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sync Whiteboard</title>
+    <title>Whiteboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="#">
 </head>
 
 <body>
+    <form id="myForm">
+    </form>
     <div class="btnholder">
-        <h3 id="id1">{{ prediction }}</h3>
+        <h3 id="id1"></h3>
         <button id="clear-btn" class="button button1">Clear</button>
-        <button id="predict-btn" class="button button2" onclick="window.location.href='{{ url_for('predict') }}';">Predict</button>
+        <button id="predict-btn" class="button button2">Predict</button>
         <button id="draw-btn" class="button button3" >Draw</button>
         
     </div>
-    <canvas class="whiteboard" ></canvas>
+    <div id="div1">
+    <canvas id="myCanvas" class="whiteboard" ></canvas>
+    </div>
     
-    
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!--<script src="https://media.twiliocdn.com/sdk/js/sync/releases/0.12.4/twilio-sync.min.js"></script>-->
-    <script src="{{ url_for('static', filename='main.js') }}"></script>
-   
 </body>
 </html>
