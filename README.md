@@ -9,7 +9,7 @@ right now, it's static where there is code which is used to draw the shape not A
 drawable shapes are: line,rectangle,square,circle,triangle,scalene,oval.
 
 # Working:
-1) tring to make prediction faster
+1) trying to make prediction faster
 2) making AI model for drawing 
 
 # Future Plans:
