@@ -9,11 +9,11 @@ right now, it's static where there is code which is used to draw the shape not A
 drawable shapes are: line,rectangle,square,circle,triangle,scalene,oval.
 
 # working:
--> tring to make prediction faster
--> making AI model for drawing 
+1) tring to make prediction faster
+2) making AI model for drawing 
 
 # future plans:
--> AI to draw shape
--> building another feature "fill" to fill color inside the shape.
+1) AI to draw shape
+2) building another feature "fill" to fill color inside the shape.
 
 heroku link: https://drawshapebywritingname.herokuapp.com/
