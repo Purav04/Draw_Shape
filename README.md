@@ -14,6 +14,6 @@ drawable shapes are: line,rectangle,square,circle,triangle,scalene,oval.
 
 # Future Plans:
 1) AI to draw shape
-2) building another feature "fill" to fill color inside the shape.
+2) Adding another feature "fill" to fill color inside the shape.
 
 heroku link: https://drawshapebywritingname.herokuapp.com/
