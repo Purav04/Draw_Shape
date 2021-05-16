@@ -1,6 +1,6 @@
 -> This web app has three features yet,
    1) Clear the whiteboard
-   2) Predict the words from whiteboard
+   2) Predict the words from whiteboard (take some time and it will show you "Prediction is :" like this on the top of the buttons)
    3) Draw the shape
 
 Till now, prediction of the words are completed with the use of pytesseract and working on the AI model to draw the shape. 
