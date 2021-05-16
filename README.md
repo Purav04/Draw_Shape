@@ -1,4 +1,4 @@
--> This project has three features yet,
+-> This web app has three features yet,
    1) Clear the whiteboard
    2) Predict the words from whiteboard
    3) Draw the shape
